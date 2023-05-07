@@ -81,7 +81,7 @@ class UsersController extends Controller
 
       $item->update($post);
 
-      return redirect(url('users'))->with('success', 'User Admin berhasil ditambahkan!');
+      return redirect(url('users'))->with('success', 'User Admin berhasil diperbarui!');
 
     } catch (\Throwable $th) {
       return redirect()->back()->with('message', $th->getMessage());
