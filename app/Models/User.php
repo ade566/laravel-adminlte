@@ -48,7 +48,7 @@ class User extends Authenticatable
     }
     
     static function getData($req = []){
-        $data = User::orderBy('id', 'desc')->withParameters($req);
+        $data = User::orderBy('id', 'desc')->whereNotIn('id', [auth()->user()->id])->withParameters($req);
         $result = $data->paginate(10)->appends(request()->except('page'));
         $result->getCollection()->transform(function ($item) {
             return $item;
