@@ -13,6 +13,7 @@
         
         <x-menu title="Dashboard" url="dashboard" icon="fas fa-tachometer-alt" />
 
+				<x-menu title="User Admin" url="users" icon="fas fa-user-secret" />
 
         <li class="nav-item d-none">
           <a href="#" class="nav-link">

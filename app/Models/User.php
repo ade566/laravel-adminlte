@@ -41,4 +41,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function scopeWithParameters($query, $req) {
+        return $query = $query;
+    }
+    
+    static function getData($req = []){
+        $data = User::orderBy('id', 'desc')->withParameters($req);
+        $result = $data->paginate(10)->appends(request()->except('page'));
+        $result->getCollection()->transform(function ($item) {
+            return $item;
+        });
+        return $result;
+    }
 }

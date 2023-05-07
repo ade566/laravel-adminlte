@@ -22,7 +22,9 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Main content -->
-    {{$slot}}
+    <div class="p-3">
+      {{$slot}}
+    </div>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
