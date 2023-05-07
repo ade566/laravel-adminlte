@@ -23,6 +23,19 @@ class UsersController extends Controller
     ]);
   }
 
+  function edit($id){
+    $item = User::find($id);
+
+    if (!$item) {
+      return redirect()->back()->with('message', 'Data tidak ditemukan!');
+    }
+
+    return view('users.edit', [
+      'title' => 'Edit User Admin',
+      'item' => $item
+    ]);
+  }
+
   function store(Request $req){
     try {
       $post = array_merge($req->only(['name', 'email']), [
@@ -46,6 +59,27 @@ class UsersController extends Controller
       }
       
       $item->delete();
+
+      return redirect(url('users'))->with('success', 'User Admin berhasil ditambahkan!');
+
+    } catch (\Throwable $th) {
+      return redirect()->back()->with('message', $th->getMessage());
+    }
+  }
+
+  function update(Request $req){
+    try {
+      $item = User::find($req->id);
+
+      if (!$item) {
+        throw new InvalidArgumentException('Data tidak ditemukan!', 500);
+      }
+
+      $post = array_merge($req->only(['name', 'email']), [
+        'password' => $req->password ? Hash::make($req->password) : $item->password
+      ]);
+
+      $item->update($post);
 
       return redirect(url('users'))->with('success', 'User Admin berhasil ditambahkan!');
 

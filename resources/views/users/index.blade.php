@@ -37,12 +37,18 @@
                 <td>{{$item->name}}</td>
                 <td>{{$item->email}}</td>
                 <td>
-                  <form action="{{url('users/delete')}}" method="post">
-                    @csrf
-                    <input type="hidden" name="id" value="{{$item->id}}" />
+                  <div class="d-flex">
 
-                    <button type="submit" class="btn btn-primary btn-sm" onclick="return confirm(`Apa anda yakin ingin menghapus data {{$item->name}}?`)">Hapus</button>
-                  </form>
+                    <a href="{{url('users/edit/'.$item->id)}}" class="btn btn-warning btn-sm mr-2">Edit</a>
+
+                    <form action="{{url('users/delete')}}" method="post">
+                      @csrf
+                      <input type="hidden" name="id" value="{{$item->id}}" />
+
+                      <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm(`Apa anda yakin ingin menghapus data {{$item->name}}?`)">Hapus</button>
+                    </form>
+
+                  </div>
                 </td>
               </tr>
             @endforeach

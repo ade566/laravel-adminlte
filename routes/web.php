@@ -29,9 +29,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::prefix('users')->group(function () {
         Route::get('/', [UsersController::class, 'index']);
         Route::get('/add', [UsersController::class, 'add']);
+        Route::get('/edit/{id}', [UsersController::class, 'edit']);
 
         Route::post('/store', [UsersController::class, 'store']);
         Route::post('/delete', [UsersController::class, 'delete']);
+        Route::post('/update', [UsersController::class, 'update']);
     });
     
 });
