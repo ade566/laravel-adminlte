@@ -23,6 +23,18 @@
   <div class="content-wrapper">
     <!-- Main content -->
     <div class="p-3">
+      @if (\Session::has('success'))
+        <div class="alert alert-success mb-2">
+          {!! \Session::get('success') !!}
+        </div>
+      @endif
+
+      @if (\Session::has('message'))
+        <div class="alert alert-danger mb-2">
+          {!! \Session::get('message') !!}
+        </div>
+      @endif
+
       {{$slot}}
     </div>
     <!-- /.content -->
