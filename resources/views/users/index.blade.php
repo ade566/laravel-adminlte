@@ -9,7 +9,7 @@
       <div class="card-tools mr-0">
         <form method="get" style="margin-top:8px;">
           <div class="input-group input-group-sm">
-            <input type="text" name="title" class="form-control float-right" placeholder="Cari nama" value="">
+            <input type="text" name="name" class="form-control float-right" placeholder="Cari nama" value="{{$_GET['name'] ?? ''}}" />
 
             <div class="input-group-append">
               <button type="submit" class="btn btn-default">

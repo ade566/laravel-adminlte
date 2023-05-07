@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class UsersController extends Controller
 {
   function index(Request $req){
-    $collection = User::getData();
+    $collection = User::getData($req->all());
 
     return view('users.index', [
       'collection' => $collection

@@ -44,6 +44,9 @@ class User extends Authenticatable
 
 
     public function scopeWithParameters($query, $req) {
+        if (!empty($req['name'])) {
+            $query->where('name', 'LIKE', '%'.$req['name'].'%');
+        }
         return $query = $query;
     }
     
