@@ -1,4 +1,3 @@
-<x-layout>
-  <x-breadcrumb />
+<x-layout title="Dashboard">
   
 </x-layout>
