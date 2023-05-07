@@ -31,6 +31,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/add', [UsersController::class, 'add']);
 
         Route::post('/store', [UsersController::class, 'store']);
+        Route::post('/delete', [UsersController::class, 'delete']);
     });
     
 });

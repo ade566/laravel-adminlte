@@ -37,7 +37,12 @@
                 <td>{{$item->name}}</td>
                 <td>{{$item->email}}</td>
                 <td>
+                  <form action="{{url('users/delete')}}" method="post">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$item->id}}" />
 
+                    <button type="submit" class="btn btn-primary btn-sm" onclick="return confirm(`Apa anda yakin ingin menghapus data {{$item->name}}?`)">Hapus</button>
+                  </form>
                 </td>
               </tr>
             @endforeach
