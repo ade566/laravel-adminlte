@@ -13,6 +13,8 @@
         
         <x-menu title="Dashboard" url="dashboard" icon="fas fa-tachometer-alt" />
 
+				<x-menu title="Slider" url="sliders" />
+
 				<x-menu title="User Admin" url="users" icon="fas fa-user-secret" />
 
         <li class="nav-item d-none">

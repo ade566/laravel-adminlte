@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UsersController;
 
 /*
@@ -36,5 +37,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/update', [UsersController::class, 'update']);
     });
     
+    Route::prefix('sliders')->group(function () {
+        Route::get('/', [SliderController::class, 'index']);
+        Route::get('/add', [SliderController::class, 'add']);
+        Route::get('/edit/{id}', [SliderController::class, 'edit']);
+
+        Route::post('/store', [SliderController::class, 'store']);
+        Route::post('/delete', [SliderController::class, 'delete']);
+        Route::post('/update', [SliderController::class, 'update']);
+    });
 });
 
