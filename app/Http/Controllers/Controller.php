@@ -27,4 +27,11 @@ class Controller extends BaseController
       throw new InvalidArgumentException($th->getMessage(), 500);
     }
   }  
+
+
+  function deleteFile($img){
+    if(file_exists($img)){
+      unlink($img);
+    }
+  }
 }

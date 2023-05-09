@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChooseUsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UsersController;
@@ -45,6 +46,16 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/store', [SliderController::class, 'store']);
         Route::post('/delete', [SliderController::class, 'delete']);
         Route::post('/update', [SliderController::class, 'update']);
+    });
+
+    Route::prefix('choose-us')->group(function () {
+        Route::get('/', [ChooseUsController::class, 'index']);
+        Route::get('/add', [ChooseUsController::class, 'add']);
+        Route::get('/edit/{id}', [ChooseUsController::class, 'edit']);
+
+        Route::post('/store', [ChooseUsController::class, 'store']);
+        Route::post('/delete', [ChooseUsController::class, 'delete']);
+        Route::post('/update', [ChooseUsController::class, 'update']);
     });
 });
 
