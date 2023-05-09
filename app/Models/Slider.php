@@ -14,6 +14,11 @@ class Slider extends Model
   protected $fillable = ['title', 'overview', 'file'];
 
   public function scopeWithParameters($query, $req) {
+    if (!empty($req['title'])) {
+      $query->where('title', 'LIKE', '%'.$req['title'].'%');
+
+      // $query->where('title', $req['title']);
+    }
     return $query = $query;
   }
 
