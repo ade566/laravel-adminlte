@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChooseUsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UsersController;
 
@@ -53,7 +54,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/', [ChooseUsController::class, 'index']);
         Route::get('/add', [ChooseUsController::class, 'add']);
         Route::get('/edit/{id}', [ChooseUsController::class, 'edit']);
-
         Route::post('/store', [ChooseUsController::class, 'store']);
         Route::post('/delete', [ChooseUsController::class, 'delete']);
         Route::post('/update', [ChooseUsController::class, 'update']);
@@ -63,10 +63,18 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/', [CategoryController::class, 'index']);
         Route::get('/add', [CategoryController::class, 'add']);
         Route::get('/edit/{id}', [CategoryController::class, 'edit']);
-
         Route::post('/store', [CategoryController::class, 'store']);
         Route::post('/delete', [CategoryController::class, 'delete']);
         Route::post('/update', [CategoryController::class, 'update']);
+    });
+
+    Route::prefix('portofolio')->group(function () {
+        Route::get('/', [PortofolioController::class, 'index']);
+        Route::get('/add', [PortofolioController::class, 'add']);
+        Route::get('/edit/{id}', [PortofolioController::class, 'edit']);
+        Route::post('/store', [PortofolioController::class, 'store']);
+        Route::post('/delete', [PortofolioController::class, 'delete']);
+        Route::post('/update', [PortofolioController::class, 'update']);
     });
 });
 
