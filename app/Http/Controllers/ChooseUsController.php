@@ -58,6 +58,8 @@ class ChooseUsController extends Controller
         throw new InvalidArgumentException('Data tidak ditemukan!', 500);
       }
       
+      $this->deleteFile($item->file);
+
       $item->delete();
 
       return redirect(url('choose-us'))->with('success', 'Keunggulan kami berhasil dihapus!');
@@ -75,11 +77,17 @@ class ChooseUsController extends Controller
         throw new InvalidArgumentException('Data tidak ditemukan!', 500);
       }
 
+      $file = $item->file;
+
       $post = array_merge($req->only(['title', 'overview']), [
-        'file' => $req->file ? $this->upload($req->file, 'choose-us') : $item->file
+        'file' => $req->file ? $this->upload($req->file, 'choose-us') : $file
       ]);
 
       $item->update($post);
+
+      if ($req->file) {
+        $this->deleteFile($file);
+      }
 
       return redirect(url('choose-us'))->with('success', 'Keunggulan kami berhasil diperbarui!');
 

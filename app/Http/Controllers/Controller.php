@@ -28,7 +28,6 @@ class Controller extends BaseController
     }
   }  
 
-
   function deleteFile($img){
     if(file_exists($img)){
       unlink($img);

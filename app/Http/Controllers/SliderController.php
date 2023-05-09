@@ -44,10 +44,12 @@ class SliderController extends Controller
       if (!$item) {
         throw new InvalidArgumentException('Data tidak ditemukan!', 500);
       }
+
+      $this->deleteFile($item->file);
       
       $item->delete();
 
-      return redirect(url('sliders'))->with('success', 'User Admin berhasil ditambahkan!');
+      return redirect(url('sliders'))->with('success', 'Slider berhasil dihapus!');
 
     } catch (\Throwable $th) {
       return redirect()->back()->with('message', $th->getMessage());
@@ -75,11 +77,17 @@ class SliderController extends Controller
         throw new InvalidArgumentException('Data tidak ditemukan!', 500);
       }
 
+      $file = $item->file;
+
       $post = array_merge($req->only(['title', 'overview']), [
-        'file' => $req->file ? $this->upload($req->file, 'sliders') : $item->file
+        'file' => $req->file ? $this->upload($req->file, 'sliders') : $file
       ]);
 
       $item->update($post);
+
+      if ($req->file) {
+        $this->deleteFile($file);
+      }
 
       return redirect(url('sliders'))->with('success', 'Sliders berhasil diperbarui!');
 
