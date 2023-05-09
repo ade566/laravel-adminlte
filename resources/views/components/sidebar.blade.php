@@ -19,8 +19,6 @@
 
 				<x-menu title="Keunggulan Kami" url="choose-us" />
 
-        <x-menu title="Portofolio" url="portofolio" />
-
 				<x-menu title="User Admin" url="users" icon="fas fa-user-secret" />
 
         <li class="nav-item d-none">
