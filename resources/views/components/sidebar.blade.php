@@ -15,6 +15,8 @@
 
 				<x-menu title="Slider" url="sliders" />
 
+				<x-menu title="Kategori" url="category" />
+
 				<x-menu title="Keunggulan Kami" url="choose-us" />
 
 				<x-menu title="User Admin" url="users" icon="fas fa-user-secret" />
