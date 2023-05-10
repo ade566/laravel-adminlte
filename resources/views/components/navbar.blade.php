@@ -51,7 +51,7 @@
           <i class="fas fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Biodata Diri
         </a>
         <div class="dropdown-divider"></div>
-        <a href="http://training.test/backend/public/logout" class="dropdown-item">
+        <a href="{{url('logout')}}" class="dropdown-item">
           <i class="fas fa-sign-out-alt" aria-hidden="true"></i>&nbsp;&nbsp;Keluar
         </a>
       </div>

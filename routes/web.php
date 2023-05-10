@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChooseUsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UsersController;
 
@@ -24,6 +26,9 @@ Route::get('/', function () {
 })->name('login');
 
 Route::post('login', [AuthController::class, 'run']);
+
+Route::get('logout', [AuthController::class, 'logout']);
+
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
@@ -68,5 +73,26 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/delete', [CategoryController::class, 'delete']);
         Route::post('/update', [CategoryController::class, 'update']);
     });
+
+    Route::prefix('portofolio')->group(function () {
+        Route::get('/', [PortofolioController::class, 'index']);
+        Route::get('/add', [PortofolioController::class, 'add']);
+        Route::get('/edit/{id}', [PortofolioController::class, 'edit']);
+
+        Route::post('/store', [PortofolioController::class, 'store']);
+        Route::post('/delete', [PortofolioController::class, 'delete']);
+        Route::post('/update', [PortofolioController::class, 'update']);
+    });
+
+    Route::prefix('blog')->group(function () {
+        Route::get('/', [BlogController::class, 'index']);
+        Route::get('/add', [BlogController::class, 'add']);
+        Route::get('/edit/{id}', [BlogController::class, 'edit']);
+
+        Route::post('/store', [BlogController::class, 'store']);
+        Route::post('/delete', [BlogController::class, 'delete']);
+        Route::post('/update', [BlogController::class, 'update']);
+    });
+
 });
 
