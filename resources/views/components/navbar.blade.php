@@ -47,7 +47,7 @@
       </a>
       <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
         <div class="dropdown-divider"></div>
-        <a href="http://training.test/backend/public/profile" class="dropdown-item">
+        <a href="{{url('profile')}}" class="dropdown-item">
           <i class="fas fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Biodata Diri
         </a>
         <div class="dropdown-divider"></div>
