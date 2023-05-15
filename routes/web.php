@@ -9,6 +9,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -88,11 +89,17 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('/', [BlogController::class, 'index']);
         Route::get('/add', [BlogController::class, 'add']);
         Route::get('/edit/{id}', [BlogController::class, 'edit']);
-
         Route::post('/store', [BlogController::class, 'store']);
         Route::post('/delete', [BlogController::class, 'delete']);
         Route::post('/update', [BlogController::class, 'update']);
     });
 
+    Route::prefix('service')->group(function () {
+        Route::get('/', [ServiceController::class, 'index']);
+        Route::get('add', [ServiceController::class, 'add']);
+        Route::post('store', [ServiceController::class, 'store']);
+        Route::get('edit/{id}', [ServiceController::class, 'edit']);
+        Route::post('update', [ServiceController::class, 'update']);
+    });
 });
 
