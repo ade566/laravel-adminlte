@@ -2,11 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChooseUsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ConfigurationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +31,7 @@ Route::get('/', function () {
 Route::post('login', [AuthController::class, 'run']);
 
 Route::get('logout', [AuthController::class, 'logout']);
+
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
@@ -70,5 +76,45 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::post('/delete', [CategoryController::class, 'delete']);
         Route::post('/update', [CategoryController::class, 'update']);
     });
+
+    Route::prefix('portofolio')->group(function () {
+        Route::get('/', [PortofolioController::class, 'index']);
+        Route::get('/add', [PortofolioController::class, 'add']);
+        Route::get('/edit/{id}', [PortofolioController::class, 'edit']);
+
+        Route::post('/store', [PortofolioController::class, 'store']);
+        Route::post('/delete', [PortofolioController::class, 'delete']);
+        Route::post('/update', [PortofolioController::class, 'update']);
+    });
+
+    Route::prefix('blog')->group(function () {
+        Route::get('/', [BlogController::class, 'index']);
+        Route::get('/add', [BlogController::class, 'add']);
+        Route::get('/edit/{id}', [BlogController::class, 'edit']);
+        Route::post('/store', [BlogController::class, 'store']);
+        Route::post('/delete', [BlogController::class, 'delete']);
+        Route::post('/update', [BlogController::class, 'update']);
+    });
+
+    Route::prefix('service')->group(function () {
+        Route::get('/', [ServiceController::class, 'index']);
+        Route::get('add', [ServiceController::class, 'add']);
+        Route::post('store', [ServiceController::class, 'store']);
+        Route::get('edit/{id}', [ServiceController::class, 'edit']);
+        Route::post('update', [ServiceController::class, 'update']);
+        Route::post('/delete', [ServiceController::class, 'delete']);
+    });
+
+    Route::prefix('partner')->group(function () {
+        Route::get('/', [PartnerController::class, 'index']);
+        Route::get('add', [PartnerController::class, 'add']);
+        Route::post('store', [PartnerController::class, 'store']);
+        Route::get('edit/{id}', [PartnerController::class, 'edit']);
+        Route::post('update', [PartnerController::class, 'update']);
+        Route::post('/delete', [PartnerController::class, 'delete']);
+    });
+
+    Route::get('configuration',[ConfigurationController::class,'index']);
+    Route::post('configuration/update', [ConfigurationController::class, 'update']);
 });
 
