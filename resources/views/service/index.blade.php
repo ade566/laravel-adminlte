@@ -29,7 +29,6 @@
          <th>Kategori</th>
          <th>Judul</th>
          <th>File</th>
-         <th>Deskripsi</th>
          <th>Aksi</th>
         </tr>
       </thead>
@@ -41,7 +40,6 @@
          <td>
           <img src="{{url($item->file)}}" style="height: 100px; width: auto;">
          </td>
-         <td>{{$item->description}}</td>
          <td>
           <a href="{{url('service/edit/'.$item->id)}}" class="btn btn-warning btn-sm mr-2">Edit</a>
           <form action="{{url('service/delete')}}" method="post">

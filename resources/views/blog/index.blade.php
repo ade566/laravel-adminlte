@@ -26,8 +26,8 @@
         <table class="table table-bordered table-hover text-nowrap">
           <thead>
             <tr>
+              <th>Kategori</th>
               <th>Judul</th>
-              <th>Overview</th>
               <th>File</th>
               <th>Aksi</th>
             </tr>
@@ -35,8 +35,8 @@
           <tbody>
             @foreach ($collection as $item)
               <tr>
+                <td>{{$item->category?->title ?? '-'}}</td>
                 <td>{{$item->title}}</td>
-                <td>{{$item->overview ?? '-'}}</td>
                 <td>
                   <img src="{{asset($item->file)}}" alt="Blog" style="height: 100px; width:auto;" />
                 </td>
