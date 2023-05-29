@@ -35,7 +35,7 @@
           <tbody>
             @foreach ($collection as $item)
               <tr>
-                <td>{{$item->category_name->title}}</td>
+                <td>{{$item->category_name?->title ?? '-'}}</td>
                 <td>{{$item->title ?? '-'}}</td>
                 <td>
                   <img src="{{asset($item->file)}}" alt="Portofolio" style="height: 100px; width:auto;" />
