@@ -23,6 +23,15 @@
             <p>Dashboard</p>
           </a>
         </li>
+
+        <li class="nav-item">
+          <a 
+            href="{{url('slider')}}" 
+            class="nav-link @if(Route::currentRouteName() == 'slider') active @endif">
+            <i class="nav-icon far fa-circle"></i>
+            <p>Slider</p>
+          </a>
+        </li>
         
       </ul>
     </nav>

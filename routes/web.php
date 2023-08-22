@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,4 +28,13 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
+    Route::prefix('slider')->name('slider')
+    ->controller(SliderController::class)->group(function () {
+        Route::get('/', 'index');
+        Route::get('/add', 'add');
+        Route::get('/edit/{id}', 'edit');
+        Route::post('/_store', 'store');
+        Route::post('/_update', 'update');
+        Route::post('/_delete', 'delete');
+    });
 });

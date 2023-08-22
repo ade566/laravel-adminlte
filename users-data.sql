@@ -1,0 +1,1 @@
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES (NULL, 'Superadmin', 'gate@admin.com', NULL, '$2y$10$jhMJfLDcvi0YC0FoRvGxG.jDBmdpxVkMiuRC.8kP3P8siS4HCdEqe', NULL, NULL, NULL)

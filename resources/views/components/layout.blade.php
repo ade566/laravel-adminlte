@@ -40,6 +40,21 @@
     <x-sidebar />  
 
     <div class="content-wrapper">
+      @if (\Session::has('success'))
+        <div class="p-3">
+          <div class="alert alert-success">
+            {{\Session::get('success')}}
+          </div>
+        </div>
+      @elseif (\Session::has('error'))
+        <div class="p-3">
+          <div class="alert alert-danger">
+            {{\Session::get('error')}}
+          </div>
+        </div>
+      @endif
+
+
       {{$slot}}
       <div class="pb-1"></div>
     </div>
