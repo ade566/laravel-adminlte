@@ -47,7 +47,7 @@ class ConfigurationController extends Controller
       }
 
       $data->update(array_merge(
-        $req->only(['name', 'title_aboutus', 'desc_aboutus', 'telphone']), 
+        $req->only(['name', 'title_aboutus', 'desc_aboutus', 'telphone', 'title_service', 'desc_service']), 
         [
           'img_aboutus' => $img_aboutus,
         ]

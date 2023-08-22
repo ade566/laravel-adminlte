@@ -21,16 +21,16 @@
             <input type="text" name="telphone" value="{{$item->telphone}}" placeholder="..." class="form-control" required />
           </div>
 
-          <h4>About Us</h4>
+          <h4>Tentang Kami</h4>
 
           <div class="form-group">
-            <label>Judul About Us</label>
+            <label>Judul Tentang Kami</label>
             <input type="text" name="title_aboutus" value="{{$item->title_aboutus}}" placeholder="..." class="form-control" required />
           </div>
 
           <div class="form-group">
-            <label>Konten About Us</label>
-            <textarea name="title_aboutus" placeholder="..." class="form-control" required>{{$item->title_aboutus}}</textarea>
+            <label>Konten Tentang Kami</label>
+            <textarea name="desc_aboutus" placeholder="..." class="form-control" required>{{$item->desc_aboutus}}</textarea>
           </div>
 
           <div class="form-group">
@@ -40,6 +40,18 @@
             <div id="preview">
               <img src="{{asset($item->img_aboutus)}}" id="preview" style="margin-top: 10px; width:200px; height:auto;">
             </div>
+          </div>
+          
+          <h4>Layanan Kami</h4>
+
+          <div class="form-group">
+            <label>Judul Layanan Kami</label>
+            <input type="text" name="title_service" value="{{$item->title_service}}" placeholder="..." class="form-control" required />
+          </div>
+
+          <div class="form-group">
+            <label>Konten Layanan Kami</label>
+            <textarea name="desc_service" placeholder="..." class="form-control" required>{{$item->desc_service}}</textarea>
           </div>
         </div>
         <div class="card-footer">

@@ -11,5 +11,5 @@ class Configuration extends Model
 
     protected $table = 'configuration';
     
-    protected $fillable = ['name', 'title_aboutus', 'desc_aboutus', 'img_aboutus', 'telphone'];
+    protected $fillable = ['name', 'title_aboutus', 'desc_aboutus', 'img_aboutus', 'telphone', 'title_service', 'desc_service'];
 }
