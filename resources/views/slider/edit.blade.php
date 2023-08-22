@@ -1,40 +1,38 @@
-<x-layout title="{{$title}}">
+<x-layout>
 
-  <x-breadcrumb
-    title="{{$title}}"
-    :items="[
-      [$title, url('sliders')],
-      ['Edit']
-    ]" />
+  <section class="content-header">
+    <div class="container-fluid">
+      <h1>{{$title}}</h1>
+    </div>
+  </section>
+
 
   <section class="content px-3">
     <div class="card card-primary">
-      <div class="card-header">
-        <h3 class="card-title">Edit {{$title}}</h3>
-      </div>
-      <form class="_form" action="{{url('sliders/_edit')}}" method="post" enctype="multipart/form-data">
-        <div class="card-body row">
-          <input type="hidden" name="id" value="{{$item->id}}" required>
-          <x-form.input div="col-md-8" label="URL" type="url" name="url" placeholder="{{url('')}}" required="off" value="{{$item->url}}" />
-          <div class="form-group col-md-4">
-            <label>Tukar Urutan</label>
-            <select name="urutan" class="form-control">
-              @foreach ($collection as $slider)
-                <option 
-                  value="{{$slider->id}}" 
-                  {{$item->id == $slider->id ? 'selected' : ''}}>{{$slider->urutan}}</option>
-              @endforeach
-            </select>
+      <form action="{{url('slider/_update')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="card-body">
+          <input type="hidden" name="id" value="{{$item->id}}" required />
+          <div class="form-group">
+            <label>Judul</label>
+            <input type="text" name="title" placeholder="..." class="form-control" value="{{$item->title}}" required />
           </div>
-          <div class="form-group col-md-12">
-            <label for="file">Gambar {{$title}}</label>
+          <div class="form-group">
+            <label>Konten</label>
+            <input type="text" name="content" placeholder="..." class="form-control" value="{{$item->content}}" required />
+          </div>
+          <div class="form-group">
+            <label>URL</label>
+            <input type="url" name="url" placeholder="..." class="form-control" value="{{$item->url}}" required />
+          </div>
+          <div class="form-group">
+            <label for="file">Gambar</label>
             <br />
             <input type="file" name="file" id="file" accept=".jpg, .png" />
             <div id="preview">
               <img src="{{asset($item->file)}}" id="preview" style="margin-top: 10px; width:200px; height:auto;">
             </div>
           </div>
-          <x-form.checkbox div="col-md-12" label="Tampilkan slider?" name="active" value="yes" id="active" checked="{{($item->active == 'yes') ? 'checked' : ''}}" />
         </div>
         <div class="card-footer">
           <a onclick="return history.go(-1)" class="btn btn-default" id="_backButton">Kembali</a>
@@ -44,7 +42,4 @@
     </div>
   </section>
 
-  <x-slot name="js">
-    <script type="text/javascript" src="{{asset('js/crud/post.js')}}"></script>
-  </x-slot>
 </x-layout>

@@ -1,4 +1,4 @@
-<x-layout title="{{$title}}">
+<x-layout>
   <section class="content-header">
     <div class="container-fluid">
       <h1>{{$title}}</h1>
