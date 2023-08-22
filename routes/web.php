@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,8 +23,8 @@ Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
 
-    Route::get('/dashboard', function () {
-        return 'dashboard';
-    })->name('home');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 });
