@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChooseusController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,16 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::prefix('slider')->name('slider')
     ->controller(SliderController::class)->group(function () {
+        Route::get('/', 'index');
+        Route::get('/add', 'add');
+        Route::get('/edit/{id}', 'edit');
+        Route::post('/_store', 'store');
+        Route::post('/_update', 'update');
+        Route::post('/_delete', 'delete');
+    });
+
+    Route::prefix('chooseus')->name('chooseus')
+    ->controller(ChooseusController::class)->group(function () {
         Route::get('/', 'index');
         Route::get('/add', 'add');
         Route::get('/edit/{id}', 'edit');

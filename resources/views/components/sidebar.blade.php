@@ -32,6 +32,15 @@
             <p>Slider</p>
           </a>
         </li>
+
+        <li class="nav-item">
+          <a 
+            href="{{url('chooseus')}}" 
+            class="nav-link @if(Route::currentRouteName() == 'chooseus') active @endif">
+            <i class="nav-icon far fa-circle"></i>
+            <p>Keunggulan Kami</p>
+          </a>
+        </li>
         
       </ul>
     </nav>
