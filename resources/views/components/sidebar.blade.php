@@ -44,6 +44,15 @@
 
         <li class="nav-item">
           <a 
+            href="{{url('service')}}" 
+            class="nav-link @if(Route::currentRouteName() == 'service') active @endif">
+            <i class="nav-icon far fa-circle"></i>
+            <p>Layanan Kami</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a 
             href="{{url('configuration')}}" 
             class="nav-link @if(Route::currentRouteName() == 'configuration') active @endif">
             <i class="nav-icon far fa-circle"></i>

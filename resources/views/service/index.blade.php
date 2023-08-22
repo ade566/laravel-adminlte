@@ -9,7 +9,7 @@
     <div class="row">
       <div class="col-md-2">
         <a 
-          href="{{url('slider/add')}}" 
+          href="{{url('service/add')}}" 
           class="btn btn-primary">
           Tambah
         </a>
@@ -34,7 +34,7 @@
               </div>
             </div>
             <div class="card-footer">
-              <a href="{{url('slider')}}" class="btn btn-danger">
+              <a href="{{url('service')}}" class="btn btn-danger">
                 Hapus Pencarian
               </a>
               <button type="submit" class="btn btn-primary">
@@ -63,21 +63,17 @@
               @foreach ($collection as $index => $item)
                 <tr>
                   <td>{{$index + 1}}</td>
-                  <td>
-                    <a href="{{$item->url}}" target="_blank" rel="noopener noreferrer">
-                      {{$item->title}}
-                    </a>
-                  </td>
+                  <td>{{$item->title}}</td>
                   <td>{{$item->content}}</td>
                   <td>
-                    <img src="{{asset($item->file)}}" alt="slider" style="width:100px;" />
+                    <img src="{{asset($item->file)}}" alt="service" style="width:100px;" />
                   </td>
                   <td>
-                    <a href="{{url('slider/edit/'.$item->id)}}" class="btn btn-sm btn-primary">
+                    <a href="{{url('service/edit/'.$item->id)}}" class="btn btn-sm btn-primary">
                       Edit
                     </a>
 
-                    <form action="{{url('slider/_delete')}}" method="post" class="mt-2">
+                    <form action="{{url('service/_delete')}}" method="post" class="mt-2">
                       @csrf
                       <input type="hidden" name="id" value="{{$item->id}}">
                       <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda ingin menghapus data ini?')">
