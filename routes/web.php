@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChooseusController;
+use App\Http\Controllers\ConfigurationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SliderController;
 use Illuminate\Support\Facades\Route;
@@ -47,5 +48,11 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::post('/_store', 'store');
         Route::post('/_update', 'update');
         Route::post('/_delete', 'delete');
+    });
+
+    Route::prefix('configuration')->name('configuration')
+    ->controller(ConfigurationController::class)->group(function () {
+        Route::get('/', 'index');
+        Route::post('/_update', 'update');
     });
 });

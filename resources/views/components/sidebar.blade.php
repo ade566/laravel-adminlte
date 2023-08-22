@@ -41,6 +41,15 @@
             <p>Keunggulan Kami</p>
           </a>
         </li>
+
+        <li class="nav-item">
+          <a 
+            href="{{url('configuration')}}" 
+            class="nav-link @if(Route::currentRouteName() == 'configuration') active @endif">
+            <i class="nav-icon far fa-circle"></i>
+            <p>Konfigurasi</p>
+          </a>
+        </li>
         
       </ul>
     </nav>

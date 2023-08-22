@@ -17,7 +17,7 @@
             <input type="text" name="title" value="{{$item->title}}" placeholder="..." class="form-control" required />
           </div>
 
-          <div class="form-group col-md-12">
+          <div class="form-group">
             <label for="file">Gambar</label>
             <br />
             <input type="file" name="file" id="file" accept=".jpg, .png" />
